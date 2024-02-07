@@ -2,11 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+request.setCharacterEncoding("utf-8");
 String name = request.getParameter("name");
 String value = request.getParameter("value");
 Cookie cookie = new Cookie(name, URLEncoder.encode(value, "utf-8"));
 response.addCookie(cookie);
-response.sendRedirect("listCookie.jsp");
+response.sendRedirect("listCookies.jsp");
 %>
 
 <!DOCTYPE html>

@@ -8,7 +8,7 @@ String nameU = "";    String valueU = "";
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>쿠키 관리 프로그램</title>
 	<style>
         table { width: 400px; text-align: center; }
         th    { background-color: cyan; }
@@ -35,7 +35,7 @@ if (cookies != null && cookies.length > 0) {
             <tr>
 				<td><%=ck.getName() %></td>
 				<td><%=URLDecoder.decode(ck.getValue(), "utf-8") %></td>
-				<td>삭제</td>
+				<td><a href="delCookie.jsp?name=<%=ck.getName() %>">삭제</a></td>
             </tr>
            
 <% 
