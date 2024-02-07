@@ -26,7 +26,9 @@ String nameU = "";    String valueU = "";
         <th>쿠키 이름</th><th>쿠키 값</th><th>삭제</th>
     </tr>
 <%
-
+Cookie[] cookies = request.getCookies();
+if (cookies != null && cookies.length > 0) {
+	for (Cookie ck : cookies) {
 %>          
             <tr>
 				<td></td>
@@ -34,7 +36,8 @@ String nameU = "";    String valueU = "";
 				<td></td>
             </tr>
 <%          
-
+	}
+}
 %>
 </table>
 </body>
