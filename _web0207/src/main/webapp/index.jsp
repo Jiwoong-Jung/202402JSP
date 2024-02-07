@@ -4,6 +4,15 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+String numU = "";
+String nameU = "";
+String korU = "";
+String engU = "";
+String mathU = "";
+
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,14 +24,12 @@
 	</style>
 </head>
 <body>
-<form action="insert.jsp" method="post">
-번호<input type="text" name="num" /><br/>
-이름<input type="text" name="name" /><br/>
-국어<input type="text" name="kor" /><br/>
-영어<input type="text" name="eng" /><br/>
-수학<input type="text" name="math" /><br/>
-<input type="submit" value="입력"/>
-<input type="reset" />
+<form method="post" id="frm">
+번호<input type="text" name="num" value="<%=numU %>"/><br/>
+이름<input type="text" name="name" value="<%=nameU %>"/><br/>
+국어<input type="text" name="kor" value="<%=korU %>"/><br/>
+영어<input type="text" name="eng" value="<%=engU %>"/><br/>
+수학<input type="text" name="math" value="<%=mathU %>" /><br/>
 </form>
 <table>
     <tr>
