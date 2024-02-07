@@ -14,9 +14,9 @@
 <%
 	if (cookies != null && cookies.length > 0) {
 		for (Cookie ck : cookies) {
-			out.print(ck.getName() + "<br/>");
+			out.print(ck.getName() + " = ");
 			String str = URLDecoder.decode(ck.getValue(), "utf-8");
-			out.print(str);
+			out.print(str + "<br/>");
 		}
 	}
 %>
