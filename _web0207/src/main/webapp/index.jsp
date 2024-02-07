@@ -21,14 +21,14 @@
 국어<input type="text" name="kor" /><br/>
 영어<input type="text" name="eng" /><br/>
 수학<input type="text" name="math" /><br/>
-<input type="submit" value="확인"/>
+<input type="submit" value="입력"/>
 <input type="reset" />
 </form>
 <table>
     <tr>
         <th>번호</th><th>이름</th>
         <th>국어</th><th>영어</th><th>수학</th>
-        <th>총점</th><th>평균</th>
+        <th>총점</th><th>평균</th><th>삭제</th>
     </tr>
 <%
     Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -52,6 +52,7 @@
                 <td><%=rs.getInt   ("math")%></td>
                 <td><%=sum%></td>
                 <td><%=String.format("%.2f", (float)sum / 3)%></td>
+                <td><a href="delete.jsp?num=<%=num %>">삭제</a></td>
             </tr>
 <%          
         }
