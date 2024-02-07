@@ -31,8 +31,8 @@ String mathU = "";
 영어<input type="text" name="eng" value="<%=engU %>"/><br/>
 수학<input type="text" name="math" value="<%=mathU %>" /><br/>
 </form>
-<button onclick="">입력</button>
-<button onclick="">수정</button>
+<button onclick="insert()">입력</button>
+<button onclick="update()">수정</button>
 <table>
     <tr>
         <th>번호</th><th>이름</th>
