@@ -15,7 +15,8 @@ try (
     Connection conn = DriverManager.getConnection(
             "jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
     Statement stmt = conn.createStatement();
-    ResultSet rs = stmt.executeQuery("select * from score where num = 2");
+    ResultSet rs = stmt.executeQuery("select * from score where num = "
+                             + request.getParameter("num"));
 ) {
     if (rs.next()) {
     	numU = rs.getString("num");
@@ -27,7 +28,7 @@ try (
 
 
 } catch(Exception e) {
-   e.printStackTrace();
+   
 }
 
 %>
@@ -72,8 +73,8 @@ try (
                       rs.getInt("math");
 %>          
             <tr>
-                <td><a href="updateForm.jsp?num=<%=num %>"><%=num %></a></td>
-                <td><a href="updateForm.jsp?num=<%=num %>"><%=name %></a></td>
+                <td><a href="index.jsp?num=<%=num %>"><%=num %></a></td>
+                <td><a href="index.jsp?num=<%=num %>"><%=name %></a></td>
                 <td><%=rs.getInt   ("kor" )%></td>
                 <td><%=rs.getInt   ("eng" )%></td>
                 <td><%=rs.getInt   ("math")%></td>
