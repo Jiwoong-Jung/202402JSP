@@ -44,5 +44,22 @@ if (cookies != null && cookies.length > 0) {
 }
 %>
 </table>
+<script>
+function insert() {
+	document.getElementById('frm').action='mkCookie.jsp';
+	document.getElementById('frm').submit();
+}
+function update() {
+	document.getElementById('frm').action='updCookie.jsp';
+	document.getElementById('frm').submit();
+}
+function clean() {
+	var el = document.getElementById('frm');
+	for(var i=0; i<el.length; i++){
+		el[i].value = '';
+	}
+
+}
+</script>
 </body>
 </html>
