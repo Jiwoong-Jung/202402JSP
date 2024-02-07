@@ -30,13 +30,16 @@ String nameU = "";    String valueU = "";
 Cookie[] cookies = request.getCookies();
 if (cookies != null && cookies.length > 0) {
 	for (Cookie ck : cookies) {
+		if(!ck.getName().equals("JSESSIONID")) {
 %>          
             <tr>
 				<td><%=ck.getName() %></td>
 				<td><%=URLDecoder.decode(ck.getValue(), "utf-8") %></td>
 				<td>삭제</td>
             </tr>
-<%          
+           
+<% 
+		}
 	}
 }
 %>
