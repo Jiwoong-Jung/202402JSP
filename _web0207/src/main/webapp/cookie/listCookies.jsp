@@ -16,8 +16,8 @@ String nameU = "";    String valueU = "";
 </head>
 <body>
 <form method="post" id="frm">
-쿠키 이름<input type="text" name="name" value="<%=nameU %>"/><br/>
-쿠키 값<input type="text" name="value" value="<%=valueU %>"/><br/>
+쿠키이름<input type="text" name="name" value="<%=nameU %>"/><br/>
+쿠키 값&nbsp;&nbsp;<input type="text" name="value" value="<%=valueU %>"/><br/>
 </form>
 <button onclick="insert()">입력</button>
 <button onclick="update()">수정</button>
