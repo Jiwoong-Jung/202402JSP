@@ -11,6 +11,7 @@ String korU = "";
 String engU = "";
 String mathU = "";
 
+Class.forName("oracle.jdbc.driver.OracleDriver");
 try ( 
     Connection conn = DriverManager.getConnection(
             "jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
@@ -28,7 +29,7 @@ try (
 
 
 } catch(Exception e) {
-   
+   System.out.println("오류!");
 }
 
 %>
@@ -59,7 +60,7 @@ try (
         <th>총점</th><th>평균</th><th>삭제</th>
     </tr>
 <%
-    Class.forName("oracle.jdbc.driver.OracleDriver");
+    
     try ( 
         Connection conn = DriverManager.getConnection(
                 "jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
