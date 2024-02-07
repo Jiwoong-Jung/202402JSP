@@ -1,3 +1,4 @@
+<%@page import="java.net.URLDecoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -31,9 +32,9 @@ if (cookies != null && cookies.length > 0) {
 	for (Cookie ck : cookies) {
 %>          
             <tr>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td><%=ck.getName() %></td>
+				<td><%=URLDecoder.decode(ck.getValue(), "utf-8") %></td>
+				<td>삭제</td>
             </tr>
 <%          
 	}
