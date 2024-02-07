@@ -31,6 +31,8 @@ String mathU = "";
 영어<input type="text" name="eng" value="<%=engU %>"/><br/>
 수학<input type="text" name="math" value="<%=mathU %>" /><br/>
 </form>
+<button onclick="">입력</button>
+<button onclick="">수정</button>
 <table>
     <tr>
         <th>번호</th><th>이름</th>
@@ -69,6 +71,24 @@ String mathU = "";
     }
 %>
 </table>
-
+<script>
+function insert() {
+	document.getElementById('frm').action='insert.jsp';
+	document.getElementById('frm').submit();
+}
+function update() {
+	document.getElementById('frm').action='update.jsp';
+	document.getElementById('frm').submit();
+}
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
