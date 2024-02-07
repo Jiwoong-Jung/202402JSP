@@ -11,6 +11,24 @@ String korU = "";
 String engU = "";
 String mathU = "";
 
+try ( 
+    Connection conn = DriverManager.getConnection(
+            "jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
+    Statement stmt = conn.createStatement();
+    ResultSet rs = stmt.executeQuery("select * from score where num = 2");
+) {
+    if (rs.next()) {
+    	numU = rs.getString("num");
+    	nameU = rs.getString("name");
+    	korU = rs.getString("kor");
+    	engU = rs.getString("eng"); 
+    	mathU = rs.getString("math");
+    }
+
+
+} catch(Exception e) {
+   e.printStackTrace();
+}
 
 %>
 <!DOCTYPE html>
