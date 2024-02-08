@@ -20,6 +20,13 @@
     	pstmt.setString(1, id);
     	pstmt.setString(2, pw);
 
+    	rs.next();
+    	if (rs.getInt(1) == 1) {
+    		System.out.println("로그인했다");
+    	} else {
+    		System.out.println("로그인 못했다");
+    	}
+    	
     } catch(Exception e) {
        System.out.println("오류!");
     }
