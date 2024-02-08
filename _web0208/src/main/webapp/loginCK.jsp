@@ -31,7 +31,7 @@
 %>
         <form action="loginPS.jsp" method="post"> <!--8-2.jsp:로그인 처리-->
             아이디:   <input type="text"     name="id">&nbsp;&nbsp;
-            비밀번호: <input type="password" name="pw">
+            비밀번호: <input type="text" name="pw">
             <input type="submit" value="로그인"> 
         </form>
 <%

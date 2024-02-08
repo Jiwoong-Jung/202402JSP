@@ -6,22 +6,26 @@
     pageEncoding="UTF-8"%>
 
 <%
+	request.setCharacterEncoding("utf-8");
     String id = request.getParameter("id");
     String pw = request.getParameter("pw");
 
+    System.out.println(pw);
+    String sql = "select count(*) cnt from score where num = ? and name = ?";
     Class.forName("oracle.jdbc.driver.OracleDriver");
-    String sql = "select count(*) from score where num = ? and name = ?";
     try ( 
         Connection conn = DriverManager.getConnection(
                 "jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
         PreparedStatement pstmt = conn.prepareStatement(sql);
-        ResultSet rs = pstmt.executeQuery();
     ) {
-    	pstmt.setString(1, id);
+    	pstmt.setInt(1, Integer.parseInt(id));
     	pstmt.setString(2, pw);
+    	ResultSet rs = pstmt.executeQuery();
 
     	rs.next();
-    	if (rs.getInt(1) == 1) {
+    	int res = rs.getInt(1);
+    	System.out.println(res);
+    	if (res == 1) {
     		System.out.println("로그인했다");
     	} else {
     		System.out.println("로그인 못했다");
@@ -29,6 +33,7 @@
     	
     } catch(Exception e) {
        System.out.println("오류!");
+       e.printStackTrace();
     }
     
     
