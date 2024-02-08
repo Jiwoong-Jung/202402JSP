@@ -23,7 +23,7 @@
     if (userId != null) {          // 로그인 상태일 때의 출력 
 %>
         <form action="8-3.jsp" method="post"> <!--8-3.jsp:로그아웃 처리--> 
-            <%=userId%>님 로그인
+            <%=userId%>님 로그인된 상태
             <input type="submit" value="로그아웃"> 
         </form>
 <%  
