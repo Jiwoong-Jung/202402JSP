@@ -44,6 +44,26 @@ try (
 	</style>
 </head>
 <body>
+<%
+    String userId = null;
+
+    Cookie[] cookies = request.getCookies();           
+    if (cookies != null) {
+        for(Cookie cookie : cookies) {           
+            if (cookie.getName().equals("userId")) { // userId 쿠키의 값을
+                userId = cookie.getValue();          // 변수 userId에 넣음
+                break;
+            }
+        }
+    }
+    
+    if (userId != null) {          // 로그인 상태일 때의 출력 
+    	
+%>
+<form action="logoutPS.jsp" method="post">
+            <%=userId%>님 로그인된 상태
+            <input type="submit" value="로그아웃"> 
+</form>
 <form method="post" id="frm">
 번호<input type="text" name="num" value="<%=numU %>"/><br/>
 이름<input type="text" name="name" value="<%=nameU %>"/><br/>
@@ -109,6 +129,17 @@ function clean() {
 
 }
 </script>
+<%  
+    } else {                       // 로그인되지 않은 상태일 때의 출력
+%>
+        <form action="loginPS.jsp" method="post">
+            아이디:   <input type="text"     name="id">&nbsp;&nbsp;
+            비밀번호: <input type="text" name="pw">
+            <input type="submit" value="로그인"> 
+        </form>
+<%
+    }
+%>
 </body>
 </html>
 

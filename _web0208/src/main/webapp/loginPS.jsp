@@ -9,8 +9,8 @@
 	request.setCharacterEncoding("utf-8");
     String id = request.getParameter("id");
     String pw = request.getParameter("pw");
+	boolean login = false;
 
-//    System.out.println(pw);
     String sql = "select count(*) as cnt from score where num = ? and name = ?";
     Class.forName("oracle.jdbc.driver.OracleDriver");
     try ( 
@@ -24,25 +24,19 @@
 
     	rs.next();
     	int res = rs.getInt("cnt");
-//    	System.out.println(res);
+
     	if (res == 1) {
-    		System.out.println("로그인했다");
-    	} else {
-    		System.out.println("로그인 못했다");
+    		login = true;
     	}
-    	
     } catch(Exception e) {
-       System.out.println("오류!");
-       e.printStackTrace();
+		e.printStackTrace();
     }
-    
-    
-    if (id.equals("admin") && pw.equals("1234")) {
+    if (login) {
         Cookie cookie = new Cookie("userId", id);
         cookie.setMaxAge(-1);         // 웹 브라우저가 닫힐 때 쿠키 만료됨
         response.addCookie(cookie);
         
-        response.sendRedirect("loginCK.jsp");   // 로그인 메인 화면으로 돌아감
+        response.sendRedirect("index.jsp");   // 로그인 메인 화면으로 돌아감
         return;
     }
 %>
