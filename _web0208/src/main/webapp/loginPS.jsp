@@ -11,19 +11,19 @@
     String pw = request.getParameter("pw");
 
 //    System.out.println(pw);
-    String sql = "select count(*) cnt from score where num = ? and name = ?";
+    String sql = "select count(*) as cnt from score where num = ? and name = ?";
     Class.forName("oracle.jdbc.driver.OracleDriver");
     try ( 
         Connection conn = DriverManager.getConnection(
                 "jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
         PreparedStatement pstmt = conn.prepareStatement(sql);
     ) {
-    	pstmt.setInt(1, Integer.parseInt(id));
+    	pstmt.setString(1, id);
     	pstmt.setString(2, pw);
     	ResultSet rs = pstmt.executeQuery();
 
     	rs.next();
-    	int res = rs.getInt(1);
+    	int res = rs.getInt("cnt");
 //    	System.out.println(res);
     	if (res == 1) {
     		System.out.println("로그인했다");
