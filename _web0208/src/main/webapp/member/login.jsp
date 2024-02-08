@@ -36,6 +36,7 @@
 		response.addCookie(
 			Cookies.createCookie("AUTH", id, "/", -1)
 		);
+		response.sendRedirect("index.jsp");
 %>
 <html>
 <head><title>로그인성공</title></head>
