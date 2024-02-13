@@ -20,6 +20,7 @@
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 	) {
 		pstmt.setString(1, id);
+		//pstmt.setInt(1, Integer.parseInt(id));
 		pstmt.setString(2, password);
 		try(ResultSet rs = pstmt.executeQuery()) {
 			rs.next();
