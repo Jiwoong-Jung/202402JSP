@@ -12,8 +12,17 @@
 </head>
 <body>
 <form action="result.jsp">
-email: <input type="text" name="email" 
-                      value="<%=cookies.getValue("email") %>"/>
+<%
+	if (cookies.exists("email")) {
+%>
+email: <input type="text" name="email" value="<%= cookies.getValue("email") %>" />
+<%
+	} else {
+%>
+email: <input type="text" name="email" />
+<%		
+	}
+%>
 remember me: <input type="checkbox" name="remember" checked />
 <input type="submit" />
 </form>
