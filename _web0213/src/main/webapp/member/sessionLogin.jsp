@@ -22,11 +22,16 @@
 	) {
 		pstmt.setString(1, id);
 		pstmt.setString(2, password);
-		ResultSet rs = pstmt.executeQuery();
-		rs.next();
-		if (rs.getInt(1) == 1) {  // 로그인 성공 조건
-			login = true;
+		try(ResultSet rs = pstmt.executeQuery()) {
+			rs.next();
+			if (rs.getInt(1) == 1) {  // 로그인 성공 조건
+				login = true;
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
 		}
+		
+		
 	} catch(SQLException e) {
 		e.printStackTrace();
 	}
