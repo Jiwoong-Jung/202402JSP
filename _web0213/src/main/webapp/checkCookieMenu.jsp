@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form>
+<form action="result.jsp">
 email: <input type="text" name="email" />
 remember me: <input type="checkbox" name="remember" />
 <input type="submit" />
