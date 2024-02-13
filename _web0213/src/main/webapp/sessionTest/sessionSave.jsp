@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	session.setAttribute("aaa", "bbb");
+	session.setAttribute("aaa", "한글되나요?");
 %>    
 
 <!DOCTYPE html>
