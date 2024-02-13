@@ -12,6 +12,8 @@ public class MainThEx {
 		User2 user2 = new User2();
 		user2.setCalculator(cal);
 		user2.start();
+		
+
 	}
 
 }
