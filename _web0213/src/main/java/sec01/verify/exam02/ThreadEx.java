@@ -7,6 +7,7 @@ public class ThreadEx {
 		th1.start();
 		
 		Thread th2 = new Thread(new MusicRunnable());
+		th2.setName("Music");
 		th2.start();
 	}
 
