@@ -18,7 +18,6 @@
 		Connection conn = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3306/project1", "root", "mysql");
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
 	) {
 		pstmt.setString(1, id);
 		pstmt.setString(2, password);
@@ -30,8 +29,6 @@
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
 	} catch(SQLException e) {
 		e.printStackTrace();
 	}
