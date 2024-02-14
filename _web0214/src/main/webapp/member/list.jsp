@@ -1,3 +1,6 @@
+<%@page import="dto.Board"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -7,6 +10,8 @@
 	if (memberId == null) {
 		response.sendRedirect("sessionLoginForm.jsp");
 	}
+	BoardDao dao = BoardDao.getInstance();
+	List<Board> list = dao.selectList();
 %>
 <!DOCTYPE html>
 <html>
@@ -37,36 +42,21 @@
         <th                >조회수  </th>
     </tr>
 <%
-    // 게시글 리스트 읽어오기
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    try (
-        Connection conn = DriverManager.getConnection(
-        		"jdbc:mysql://localhost:3306/project1", "root", "mysql");
-        Statement stmt = conn.createStatement();
-    
-        // 쿼리 실행
-        ResultSet rs = stmt.executeQuery(
-                "select * from board order by num desc");           
-    ) {
-        // 게시글 레코드가 남아있는 동안 반복하며 화면에 출력
-        while (rs.next()) {
+for (Board board : list) {
 %>         
         <tr>
-            <td><%=rs.getInt("num")%></td>
+            <td><%=board.getNum()%></td>
             <td style="text-align:left;">
-                <a href="view.jsp?num=<%=rs.getInt("num")%>">
-                    <%=rs.getString("title")%>
+                <a href="view.jsp?num=<%=board.getNum()%>">
+                    <%=board.getTitle()%>
                 </a>
             </td>
-            <td><%=rs.getString("writer" )%></td>
-            <td><%=rs.getString("regtime")%></td>
-            <td><%=rs.getInt   ("hits"   )%></td>
+            <td><%=board.getWriter()%></td>
+            <td><%=board.getRegtime()%></td>
+            <td><%=board.getHits()%></td>
         </tr>
 <%
-        }
-    } catch(Exception e) {
-        e.printStackTrace();
-    }
+}
 %>
 </table>
 

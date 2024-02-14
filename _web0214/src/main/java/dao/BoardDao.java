@@ -46,10 +46,7 @@ public class BoardDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
 		return list;
-		
 	}
 	
 }
