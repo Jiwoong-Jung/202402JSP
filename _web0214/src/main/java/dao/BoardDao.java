@@ -84,7 +84,7 @@ public class BoardDao {
 		return 0;
 	}
 	
-	public int update(int num) {
+	public int update(Board board) {
 		//
 		return 0;
 	}
