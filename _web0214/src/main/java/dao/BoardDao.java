@@ -40,7 +40,7 @@ public class BoardDao {
 			while (rs.next()) {
 				Board board = new Board(rs.getInt("num"), rs.getString("writer"), 
 						rs.getString("title"), rs.getString("content"),
-						rs.getString("regtime"), 0);
+						rs.getString("regtime"), rs.getInt("hits"));
 				list.add(board);
 			}
 		} catch (SQLException e) {
@@ -48,6 +48,11 @@ public class BoardDao {
 		}
 		return list;
 	}
+	
+//	public Board selectOne(int num) {
+//
+//		
+//	}
 	
 }
 

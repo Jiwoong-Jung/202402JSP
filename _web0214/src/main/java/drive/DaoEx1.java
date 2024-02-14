@@ -12,7 +12,7 @@ public class DaoEx1 {
 		List<Board> list = dao.selectList(); // selectList() 호출해 보세요.
 		// list에 들어있는 객체들을 출력해 보세요.
 		for (Board board : list) {
-			System.out.println(board);
+			System.out.println(board.getWriter());
 		}
 	}
 
