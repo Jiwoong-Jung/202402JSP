@@ -1,5 +1,6 @@
 package ramda;
 
 public interface MyFunc {
-	void method();
+	void method(int x);
+//	void bbb();
 }
