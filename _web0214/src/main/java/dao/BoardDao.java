@@ -49,10 +49,27 @@ public class BoardDao {
 		return list;
 	}
 	
-//	public Board selectOne(int num) {
-//
-//		
-//	}
+	public Board selectOne(int num) {
+		Board board = null;
+		String sql = "select * from board where num = ?";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				board = new Board(rs.getInt("num"), rs.getString("writer"), 
+						rs.getString("title"), rs.getString("content"),
+						rs.getString("regtime"), rs.getInt("hits"));
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return board;
+		
+	}
 	
 }
 
