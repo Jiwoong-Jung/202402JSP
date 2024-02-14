@@ -10,16 +10,25 @@ import java.util.ArrayList;
 import dto.Board;
 
 public class BoardDao {
+	private static Connection conn;
 	private static BoardDao dao = new BoardDao();
 	private BoardDao() {} // 생성자
 	public static BoardDao getInstance() {
+		conn = getConnection();
 		return dao;
 	}
 	
-	private Connection getConnection() throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(
-        		"jdbc:mysql://localhost:3306/project1", "root", "mysql");
+	private static Connection getConnection() {
+		Connection conn = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection(
+	        		"jdbc:mysql://localhost:3306/project1", "root", "mysql");
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return conn;
 	}
 	
@@ -28,7 +37,7 @@ public class BoardDao {
 		String sql = "select * from board order by num desc";
 		PreparedStatement pstmt;
 		try {
-			pstmt = this.getConnection().prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
@@ -37,8 +46,7 @@ public class BoardDao {
 						rs.getString("regtime"), 0);
 				list.add(board);
 			}
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
