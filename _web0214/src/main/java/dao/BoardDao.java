@@ -14,22 +14,19 @@ public class BoardDao {
 	private static BoardDao dao = new BoardDao();
 	private BoardDao() {} // 생성자
 	public static BoardDao getInstance() {
-		conn = getConnection();
+		getConnection();
 		return dao;
 	}
 	
-	private static Connection getConnection() {
-		Connection conn = null;
+	private static void getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(
 	        		"jdbc:mysql://localhost:3306/project1", "root", "mysql");
+
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-		return conn;
+		}		
 	}
 	
 	public ArrayList<Board> selectList() {
