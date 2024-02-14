@@ -13,7 +13,7 @@
 		response.sendRedirect("sessionLoginForm.jsp");
 	}
 	BoardDao dao = BoardDao.getInstance();
-	Board board = dao.selectOne(num);
+	Board board = dao.selectOne(num, true);
 %>
 
 <!DOCTYPE html>
