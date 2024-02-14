@@ -49,7 +49,7 @@ public class BoardDao {
 		return list;
 	}
 	
-	public Board selectOne(int num) {
+	public Board selectOne(int num, boolean inc) {
 		Board board = null;
 		String sql = "select * from board where num = ?";
 		PreparedStatement pstmt;
@@ -63,6 +63,9 @@ public class BoardDao {
 						rs.getString("title"), rs.getString("content"),
 						rs.getString("regtime"), rs.getInt("hits"));
 
+			}
+			if (inc) {
+				pstmt.executeUpdate("update board set hits=hits+1 where num="+num);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
