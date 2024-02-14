@@ -74,6 +74,21 @@ public class BoardDao {
 		
 	}
 	
+	public int delete(int num) {
+		//
+		return 0;
+	}
+	
+	public int insert(Board board) {
+		//
+		return 0;
+	}
+	
+	public int update(int num) {
+		//
+		return 0;
+	}
+	
 }
 
 
