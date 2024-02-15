@@ -1,3 +1,5 @@
+<%@page import="dto.Board"%>
+<%@page import="dao.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -5,6 +7,7 @@
 
 <%
     // 글 번호 값 얻기, 주어지지 않았으면 0으로 설정
+    //int num = Integer.parseInt(request.getParameter("num"));
     String tmp = request.getParameter("num");
     int num = (tmp != null && tmp.length() > 0) ? Integer.parseInt(tmp)
                                                 : 0;
@@ -17,29 +20,17 @@
 
     // 글 번호가 주어졌으면, 글 수정 모드
     if (num > 0) {
+    	BoardDao dao = BoardDao.getInstance();
+    	Board board = dao.selectOne(num, true);
+    	
+    	// 글 데이터를 변수에 저장
+        writer  = board.getWriter();
+        title   = board.getTitle();
+        content = board.getContent();
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        try (
-            Connection conn = DriverManager.getConnection(
-            		"jdbc:mysql://localhost:3306/project1", "root", "mysql");
-            Statement stmt = conn.createStatement();
+		// 글 수정 모드일 때는 저장 버튼을 누르면 UPDATE 실행
+		action  = "update.jsp?num=" + num;
 
-            // 쿼리 실행
-            ResultSet rs = stmt.executeQuery(
-                    "select * from board where num=" + num);
-        ) {
-            if (rs.next()) {
-                // 읽어들인 글 데이터를 변수에 저장
-                writer  = rs.getString("writer" );
-                title   = rs.getString("title"  );
-                content = rs.getString("content");
-
-                // 글 수정 모드일 때는 저장 버튼을 누르면 UPDATE 실행
-                action  = "update.jsp?num=" + num;
-            }
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
     }
 %>
 
