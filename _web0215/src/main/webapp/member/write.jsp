@@ -21,7 +21,7 @@
     // 글 번호가 주어졌으면, 글 수정 모드
     if (num > 0) {
     	BoardDao dao = BoardDao.getInstance();
-    	Board board = dao.selectOne(num, true);
+    	Board board = dao.selectOne(num, false);
     	
     	// 글 데이터를 변수에 저장
         writer  = board.getWriter();
