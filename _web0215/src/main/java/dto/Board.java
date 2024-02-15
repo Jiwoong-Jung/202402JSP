@@ -17,6 +17,10 @@ public class Board {
 //		this.content = content;
 	}
 
+	public Board(int num, String writer, String title, String content) {
+		this(num, writer, title, content, "", 0);
+	}
+	
 	public Board(int num, String writer, String title, String content, String regtime, int hits) {
 		this.num = num;
 		this.writer = writer;
