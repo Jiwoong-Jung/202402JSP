@@ -14,7 +14,14 @@ if (memberId == null) {
 }
 BoardDao dao = BoardDao.getInstance();
 dao.delete(num);
+%>
 
+        <script>
+            alert('삭제가 되었습니다.');
+            location.href="list.jsp";
+        </script>
+
+<%
 // 목록보기 화면으로 돌아감
-response.sendRedirect("list.jsp");
+//response.sendRedirect("list.jsp");
 %>
