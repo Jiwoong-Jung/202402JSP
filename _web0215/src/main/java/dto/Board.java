@@ -8,8 +8,16 @@ public class Board {
 	private String regtime;
 	private int hits;
 	
+	public Board() {}
+	
+	public Board(String writer, String title, String content) {
+		this(0, writer, title, content, "", 0);
+//		this.writer = writer;
+//		this.title = title;
+//		this.content = content;
+	}
+
 	public Board(int num, String writer, String title, String content, String regtime, int hits) {
-		super();
 		this.num = num;
 		this.writer = writer;
 		this.title = title;

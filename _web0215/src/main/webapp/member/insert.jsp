@@ -1,3 +1,5 @@
+<%@page import="dto.Board"%>
+<%@page import="dao.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -25,28 +27,22 @@
         return;
     }
 
-    // 입력된 내용으로 새 글 레코드 추가
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    try ( 
-        Connection conn = DriverManager.getConnection(
-        		"jdbc:mysql://localhost:3306/project1", "root", "mysql");
-        Statement stmt = conn.createStatement();            
-    ) {
-        // 현재 시간 얻기
-        String curTime = LocalDate.now() + " " + 
-                         LocalTime.now().toString().substring(0, 8);
-        
-        // 쿼리 실행
-        stmt.executeUpdate(String.format(
-                "insert into board " + 
-                "(writer, title, content, regtime, hits)" + 
-                "values ('%s', '%s', '%s', '%s', 0)",
-                writer, title, content, curTime));
-    
-    } catch(Exception e) {
-        e.printStackTrace();
-    } 
-    
+    String memberId = (String) session.getAttribute("MEMBERID");
+    if (memberId == null) {
+    	response.sendRedirect("sessionLoginForm.jsp");
+    }
+    BoardDao dao = BoardDao.getInstance();
+    Board board = new Board(writer, title, content);
+    //Board board = new Board(0, writer, title, content, "", 0);
+    /*Board board = new Board();
+    board.setWriter(writer);
+    board.setTitle(title);
+    board.setContent(content);*/
+    dao.insert(board);
     // 목록보기 화면으로 돌아감
     response.sendRedirect("list.jsp");
 %>     
+
+
+
+
