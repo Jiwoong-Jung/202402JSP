@@ -75,21 +75,38 @@ public class BoardDao {
 	}
 	
 	public int delete(int num) {
+		int result = 0;
 		try ( 
 		        PreparedStatement pstmt = conn.prepareStatement(
 		        		"delete from board where num=" + num);
 		    ) {
 		        // 쿼리 실행
-		        return pstmt.executeUpdate();
+				result = pstmt.executeUpdate();
 		        
 		    } catch(Exception e) {
 		        e.printStackTrace();
 		    }
-		return 0;
+		return result;
 	}
 	
 	public int insert(Board board) {
-		//
+		String sql = "insert into board(writer, title, content, regtime, hits) values (?,?,?,now(),0)";
+	    try ( 
+	        PreparedStatement pstmt = conn.prepareStatement(sql);            
+	    ) {
+	        // 현재 시간 얻기
+//	        String curTime = LocalDate.now() + " " + 
+//	                         LocalTime.now().toString().substring(0, 8);
+	        
+	        // 쿼리 실행
+	    	pstmt.setString(1, board.getWriter());
+	    	pstmt.setString(2, board.getTitle());
+	    	pstmt.setString(3, board.getContent());
+	        return pstmt.executeUpdate();
+	    
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    } 
 		return 0;
 	}
 	
