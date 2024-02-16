@@ -12,11 +12,9 @@
                                request.getParameter("name"));
 	MemberDao.getInstance().update(member);
         
-        // 사용자 이름을 담은 세션 속성도 업데이트
-        // 아이디는 바뀌지 않지만, 사용자 이름은 바뀔 수 있기 때문임
-        session.setAttribute("userName", request.getParameter("name"));
-        
- 
+    // 사용자 이름을 담은 세션 속성도 업데이트
+    // 아이디는 바뀌지 않지만, 사용자 이름은 바뀔 수 있기 때문임
+    session.setAttribute("userName", request.getParameter("name"));
 %>
 
 <!DOCTYPE html>
