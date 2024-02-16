@@ -91,4 +91,22 @@ public class MemberDao {
 	    } 
 		return 0;
 	}
+	
+	public int update(Member member) {
+		String sql = "update member set email = ?, name = ? where id = ?";
+	    try ( 
+	        PreparedStatement pstmt = conn.prepareStatement(sql);            
+	    ) {
+	        
+	        // 쿼리 실행
+	    	pstmt.setString(3, member.getId());
+	    	pstmt.setString(1, member.getEmail());
+	    	pstmt.setString(2, member.getName());
+	        return pstmt.executeUpdate();
+	    
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    } 
+		return 0;
+	}
 }
