@@ -1,3 +1,5 @@
+<%@page import="dao.MemberDao"%>
+<%@page import="dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
@@ -12,45 +14,28 @@
 
 <%
     request.setCharacterEncoding("utf-8");
-
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    try ( 
-        Connection conn = DriverManager.getConnection(
-        		"jdbc:mysql://localhost:3306/project1", "root", "mysql");
-        Statement stmt = conn.createStatement();
-            
-        // 현재 로그인한 사용자 정보를 읽어옴
-        ResultSet rs = stmt.executeQuery(String.format(         
-                    "select * from member where id='%s'", 
-                    (String)session.getAttribute("userId")));
-    ) {
-        rs.next();
+	Member member 
+	= MemberDao.getInstance().select((String)session.getAttribute("userId"));  
 %>
         <form action="member_update.jsp" method="post">
             <table>
                 <tr>
                     <td>아이디</td>
                     <td><input type="text" name="id" readonly
-                               value="<%=rs.getString("id")%>"></td>
+                               value="<%=member.getId()%>"></td>
                 </tr>
                 <tr>
                     <td>이메일</td>
                     <td><input type="text" name="pw" 
-                               value="<%=rs.getString("email")%>"></td>
+                               value="<%=member.getEmail()%>"></td>
                 </tr>
                 <tr>
                     <td>이름</td>
                     <td><input type="text" name="name" 
-                               value="<%=rs.getString("name")%>"></td>
+                               value="<%=member.getName()%>"></td>
                 </tr>
             </table>    
             <input type="submit" value="저장"> 
-        </form>
-<%       
-    } catch(Exception e) {
-        e.printStackTrace();
-    }
-%>
-    
+        </form>    
 </body>
 </html>
