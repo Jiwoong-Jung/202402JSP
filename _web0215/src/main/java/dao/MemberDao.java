@@ -73,4 +73,22 @@ public class MemberDao {
 		return member;
 		
 	}
+	
+	public int insert(Member member) {
+		String sql = "insert into member(id, email, name) values (?,?,?)";
+	    try ( 
+	        PreparedStatement pstmt = conn.prepareStatement(sql);            
+	    ) {
+	        
+	        // 쿼리 실행
+	    	pstmt.setString(1, member.getId());
+	    	pstmt.setString(2, member.getEmail());
+	    	pstmt.setString(3, member.getName());
+	        return pstmt.executeUpdate();
+	    
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    } 
+		return 0;
+	}
 }
