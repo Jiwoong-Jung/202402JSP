@@ -1,3 +1,5 @@
+<%@page import="dao.MemberDao"%>
+<%@page import="dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
@@ -5,26 +7,16 @@
 <%
     request.setCharacterEncoding("utf-8");
 
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    try ( 
-        Connection conn = DriverManager.getConnection(
-        		"jdbc:mysql://localhost:3306/project1", "root", "mysql");
-        Statement stmt = conn.createStatement();
-    ) {
-        // 회원 정보 양식에 입력된 값을 DB에 저장
-        stmt.executeUpdate(String.format(
-                "update member set email='%s', name='%s' where id='%s'",
-                request.getParameter("pw"  ),
-                request.getParameter("name"),
-                request.getParameter("id"  )));
+	Member member = new Member(request.getParameter("id"  ),
+							   request.getParameter("pw"  ),
+                               request.getParameter("name"));
+	MemberDao.getInstance().update(member);
         
         // 사용자 이름을 담은 세션 속성도 업데이트
         // 아이디는 바뀌지 않지만, 사용자 이름은 바뀔 수 있기 때문임
         session.setAttribute("userName", request.getParameter("name"));
         
-    } catch(Exception e) {
-        e.printStackTrace();
-    } 
+ 
 %>
 
 <!DOCTYPE html>
