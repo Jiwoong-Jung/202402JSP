@@ -2,7 +2,12 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import dto.Board;
+import dto.Member;
 
 public class MemberDao {
 	private static Connection conn;
@@ -22,5 +27,28 @@ public class MemberDao {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}		
+	}
+	
+	public Member selectForLogin(String id, String email) {
+		Member member = null;
+		String sql = "select * from member where id = ? and email = ?";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, email);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				member = new Member(rs.getString("id"), rs.getString("email"),
+						            rs.getString("name"));
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return member;
+		
 	}
 }
