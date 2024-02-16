@@ -9,6 +9,10 @@ public class MemberDaoEx {
 		MemberDao dao = MemberDao.getInstance();
 		Member member = dao.select("admin");
 		System.out.println(member);
+		
+		Member member2 
+		   = dao.selectForLogin("hong1", "hong1@korea.com");
+		System.out.println(member2);
 
 	}
 
