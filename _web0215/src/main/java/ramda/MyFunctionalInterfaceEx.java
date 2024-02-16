@@ -15,7 +15,7 @@ public class MyFunctionalInterfaceEx {
 		};
 		System.out.println(f2.method(100, 200));
 		
-		f1 = (x, y) -> sum(x, y);
+		f1 = (a, b) -> sum(a, b);
 		System.out.println(f1.method(10, 20));
 	}
 	
