@@ -11,9 +11,11 @@
     
     // 그런 레코드가 있으면, 세션 속성을 등록하고, 메인 화면으로 돌아감
     if (member != null) {
-        session.setAttribute("userId",   member.getId());
-        session.setAttribute("userName", member.getName());
-                
+        //session.setAttribute("userId",   member.getId());
+        //session.setAttribute("userName", member.getName());
+        session.setAttribute("member", member);
+        
+        
         response.sendRedirect("login_main.jsp");   
         return;
     }

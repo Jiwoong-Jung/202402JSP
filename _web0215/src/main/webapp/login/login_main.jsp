@@ -1,3 +1,4 @@
+<%@page import="dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -9,11 +10,13 @@
 <body>
 
 <%
-    if ((String)session.getAttribute("userId") != null) {          
+    //if ((String)session.getAttribute("userId") != null) {
+    Member member = (Member)session.getAttribute("member");
+    if (member != null) { 
         // 로그인 상태일 때의 출력 
 %>
         <form action="logout.jsp" method="post">  
-            <%=(String)session.getAttribute("userName")%>님 로그인
+            <%=member.getName()%>님 로그인
             <input type="submit" value="로그아웃">
             <input type="button" value="회원정보 수정" 
                    onclick="window.open('member_update_form.jsp', 'popup', 

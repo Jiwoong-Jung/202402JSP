@@ -14,8 +14,9 @@
 
 <%
     request.setCharacterEncoding("utf-8");
+	Member member3 = (Member)session.getAttribute("member");
 	Member member 
-	  = MemberDao.getInstance().select((String)session.getAttribute("userId"));  
+	  = MemberDao.getInstance().select(member3.getId());  
 %>
         <form action="member_update.jsp" method="post">
             <table>
