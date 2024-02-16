@@ -16,9 +16,9 @@
     // 아이디는 바뀌지 않지만, 사용자 이름은 바뀔 수 있기 때문임
     //session.setAttribute("userName", request.getParameter("name"));
     
-    Member member3 = (Member)session.getAttribute("member");
-    member3.setName(request.getParameter("name"));
-    session.setAttribute("member", member3);
+    //Member member3 = (Member)session.getAttribute("member");
+    //member3.setName(request.getParameter("name"));
+    session.setAttribute("member", member);
 %>
 
 <!DOCTYPE html>
