@@ -12,8 +12,11 @@ public class StreamEx1 {
 		list
 		.stream()
 //		.filter(i->i%2==0)
-		.map(i->i*2)
-		.forEach(i->System.out.println(i));
+//		.map(i->i*2)
+		.map(i -> "요소는" + i + "입니다.")
+		.limit(3)
+//		.forEach(i->System.out.println(i));
+		.forEach(System.out::println);
 		
 //		List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);
 //		Stream<Integer> stream = integerList.stream(); // Stream 생성
