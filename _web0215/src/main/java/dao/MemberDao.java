@@ -51,4 +51,26 @@ public class MemberDao {
 		return member;
 		
 	}
+	
+	public Member select(String id) {
+		Member member = null;
+		String sql = "select * from member where id = ?";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				member = new Member(rs.getString("id"), rs.getString("email"),
+						            rs.getString("name"));
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return member;
+		
+	}
 }
