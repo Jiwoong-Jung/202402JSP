@@ -13,6 +13,10 @@ public class MemberDaoEx {
 		Member member2 
 		   = dao.selectForLogin("hong1", "hong1@korea.com");
 		System.out.println(member2);
+		
+		Member member3 
+		   = new Member("test2", "test2@korea.com", "테스트2");
+		dao.insert(member3);
 
 	}
 
