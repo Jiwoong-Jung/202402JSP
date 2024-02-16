@@ -13,27 +13,17 @@
 	BoardDao dao = BoardDao.getInstance();
 	List<Board> list = dao.selectList();
 %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <style>
-        table     { width:680px; text-align:center; }
-        th        { background-color:cyan; }
-        
-        .num      { width: 80px; }
-        .title    { width:230px; }
-        .writer   { width:100px; }
-        .regtime  { width:180px; }
-                
-        a:link    { text-decoration:none; color:blue; }
-        a:visited { text-decoration:none; color:gray; }
-        a:hover   { text-decoration:none; color:red;  }
-    </style>
-</head>
-<body>
-
-<table>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+<div class="container" style="padding-top: 50px;">
+<table class="table table-bordered table-hover">
     <tr>
         <th class="num"    >번호    </th>
         <th class="title"  >제목    </th>
@@ -61,7 +51,9 @@ for (Board board : list) {
 </table>
 
 <br>
-<input type="button" value="글쓰기" onclick="location.href='write.jsp'">
+<input type="button" value="글쓰기" class="btn btn-primary" onclick="location.href='write.jsp'">
 
-</body>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
 </html>
