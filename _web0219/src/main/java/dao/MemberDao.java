@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import dto.Board;
 import dto.Member;
@@ -108,5 +110,26 @@ public class MemberDao {
 	        e.printStackTrace();
 	    } 
 		return 0;
+	}
+	
+	public HashMap<String, Member> selectMembers() {
+		HashMap<String, Member> map = new HashMap<>();
+		String sql = "select * from member";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				Member member = new Member(rs.getString("id"), 
+						rs.getString("email"),
+			            rs.getString("name"));
+				map.put(member.getId(), member);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return map;
 	}
 }

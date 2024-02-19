@@ -28,7 +28,7 @@ public class HashTableEx {
 					System.out.println("로그인됨");
 					break;
 				} else {
-					System.out.println("비밀번호 오류");
+					System.out.println("아이디 또는 비밀번호 오류");
 				}
 //			} else {
 //				System.out.println("입력한 아이디가 존재 안함");
