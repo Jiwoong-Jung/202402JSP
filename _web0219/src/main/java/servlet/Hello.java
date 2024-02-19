@@ -28,8 +28,10 @@ public class Hello extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
-		out.println("Hello World!");
+		out.println("<h1>Hello World!</h1>");
+		out.println("안녕 세상!");
 	}
 
 	/**
