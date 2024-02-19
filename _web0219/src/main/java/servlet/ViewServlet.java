@@ -48,12 +48,6 @@ public class ViewServlet extends HttpServlet {
 		BoardDao dao = BoardDao.getInstance();
 		Board board = dao.selectOne(num, true);
 		
-		// 글 데이터를 변수에 저장
-	    writer  = board.getWriter();
-	    title   = board.getTitle();
-	    content = board.getContent();
-	    regtime = board.getRegtime();
-	    hits    = board.getHits();
 	    request.setAttribute("board", board);
 	    RequestDispatcher dispatcher 
 	       = request.getRequestDispatcher("/WEB-INF/view/view.jsp");
