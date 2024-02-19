@@ -13,7 +13,9 @@
 </head>
 <body>
 <%=member.getName() %><br/>
-${mmm.name}
+${requestScope.mmm.name}<br/>
+${mmm.id}<br/>
+${mmm.email}
 
 </body>
 </html>
