@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Hello
  */
-@WebServlet("/test")
+//@WebServlet("/test")
 public class Hello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,7 +32,7 @@ public class Hello extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println("<h1>Hello World!</h1>");
 		out.println("안녕 세상!");
-		out.println(request.getParameter("name"));
+		out.println(request.getParameter("nnn"));
 	}
 
 	/**

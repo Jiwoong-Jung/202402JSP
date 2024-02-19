@@ -8,7 +8,7 @@
 </head>
 <body>
 <form action="/_web0219/test">
-이름:<input type="text" name="name" /><br/>
+이름:<input type="text" name="nnn" /><br/>
 <input type="submit" />
 </form>
 </body>
