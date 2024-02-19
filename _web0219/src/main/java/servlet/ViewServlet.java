@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,6 +54,10 @@ public class ViewServlet extends HttpServlet {
 	    content = board.getContent();
 	    regtime = board.getRegtime();
 	    hits    = board.getHits();
+	    request.setAttribute("board", board);
+	    RequestDispatcher dispatcher 
+	       = request.getRequestDispatcher("/WEB-INF/view/view.jsp");
+	    dispatcher.forward(request, response);
 	}
 
 	/**
