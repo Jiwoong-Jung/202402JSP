@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%
 	Member member = new Member("100", "hong@korea.com", "홍길동");
+	request.setAttribute("mmm", member);
 %>
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%=member.getName() %>
+<%=member.getName() %><br/>
+${mmm.name}
+
 </body>
 </html>
