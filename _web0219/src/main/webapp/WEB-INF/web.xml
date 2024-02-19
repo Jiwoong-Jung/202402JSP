@@ -12,7 +12,7 @@
   
   <servlet>
   	<servlet-name>test</servlet-name>
-  	<servlet-class>servlet/Hello</servlet-class>
+  	<servlet-class>servlet.Hello</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>test</servlet-name>
