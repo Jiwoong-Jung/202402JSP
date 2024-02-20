@@ -7,21 +7,21 @@ public class QueueExample {
 	public static void main(String[] args) {
 		Queue<Message> messageQueue = new LinkedList<Message>();
 		
-		messageQueue.offer(new Message("sendMail", "È«±æµ¿"));
-		messageQueue.offer(new Message("sendSMS", "½Å¿ë±Ç"));
-		messageQueue.offer(new Message("sendKakaotalk", "È«µÎ²²"));
+		messageQueue.offer(new Message("sendMail", "í™ê¸¸ë™"));
+		messageQueue.offer(new Message("sendSMS", "ì‹ ìš©ê¶Œ"));
+		messageQueue.offer(new Message("sendKakaotalk", "í™ë‘ê»˜"));
 		
 		while(!messageQueue.isEmpty()) {
 			Message message = messageQueue.poll();
 			switch(message.command) {
 				case "sendMail":
-					System.out.println(message.to + "´Ô¿¡°Ô ¸ŞÀÏÀ» º¸³À´Ï´Ù.");
+					System.out.println(message.to + "ë‹˜ì—ê²Œ ë©”ì¼ ë³´ëƒ„.");
 					break;
 				case "sendSMS":
-					System.out.println(message.to + "´Ô¿¡°Ô SMS¸¦ º¸³À´Ï´Ù.");
+					System.out.println(message.to + "ë‹˜ì—ê²Œ SMS ë³´ëƒ„.");
 					break;
 				case "sendKakaotalk": 
-					System.out.println(message.to + "´Ô¿¡°Ô Ä«Ä«¿ÀÅå¸¦ º¸³À´Ï´Ù.");
+					System.out.println(message.to + "ë‹˜ì—ê²Œ ì¹´ì¹´ì˜¤í†¡ ë³´ëƒ„.");
 					break;
 			}
 		}
