@@ -8,6 +8,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:choose>
+<c:when test="${param.num == 1}">
+num은 1 입니다.<br>
+</c:when>
+<c:when test="${param.num == 2}">
+num은 2 입니다.<br>
+</c:when>
+<c:otherwise>
+num은 다른 값입니다.<br>
+</c:otherwise>
+</c:choose>
+
+
 <c:if test="true">
 무조건 실행<br>
 </c:if>
