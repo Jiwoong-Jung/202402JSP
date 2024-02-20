@@ -38,8 +38,14 @@ public class DispatcherServlet extends HttpServlet {
 	
 	private void process(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String uri= request.getRequestURI();
+		System.out.println("uri:"+uri);
 		String path = uri.substring(uri.lastIndexOf("/"));
 		System.out.println(path);
+		if (path.equals("/view.do")) {
+			System.out.println("view 처리");
+		} else if (path.equals("/list.do")) {
+			System.out.println("list 처리");
+		}
 	}
 
 }
