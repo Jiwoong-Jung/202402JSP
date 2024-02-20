@@ -20,7 +20,6 @@ num은 다른 값입니다.<br>
 </c:otherwise>
 </c:choose>
 
-
 <c:if test="true">
 무조건 실행<br>
 </c:if>
@@ -28,5 +27,16 @@ ${bbb = 90; '' }
 <c:if test="${bbb < 100 }">
 bbb는 100보다 작습니다.<br>
 </c:if>
+
+${sum=0; '' }
+<c:forEach var="i" begin="1" end="100">
+${sum=sum+i; '' }
+</c:forEach>
+결과: ${sum }<br/>
 </body>
 </html>
+
+
+
+
+
