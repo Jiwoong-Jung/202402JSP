@@ -9,6 +9,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+${100+20}<br>
+${sum = 10}<br>
+${sum = sum + 100}<br>
+${name = '홍길동'}<br>
 
 </body>
 </html>
+
+
+
