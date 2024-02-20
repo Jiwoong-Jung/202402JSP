@@ -29,8 +29,9 @@ bbb는 100보다 작습니다.<br>
 </c:if>
 
 ${sum=0; '' }
-<c:forEach var="vv" begin="1" end="10">
+<c:forEach var="vv" begin="2" end="5" varStatus="st">
 ${sum = sum + vv; '' }
+${st.index} - ${st.count}<br>
 </c:forEach>
 결과: ${sum }<br/>
 </body>
