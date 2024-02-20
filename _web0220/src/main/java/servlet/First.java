@@ -29,9 +29,14 @@ public class First extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doGet");
+		request.setCharacterEncoding("utf-8");
+		String val = request.getParameter("val");
+		System.out.println(val);
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
+		
 		out.println("<h1>서블릿 페이지</h1>");
+		out.println("<h1>"+val+"</h1>");
 	}
 
 	/**
@@ -40,7 +45,7 @@ public class First extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doPost");
 		// TODO Auto-generated method stub
-		//doGet(request, response);
+		doGet(request, response);
 	}
 
 }
