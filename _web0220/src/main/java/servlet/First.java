@@ -31,12 +31,15 @@ public class First extends HttpServlet {
 		System.out.println("doGet");
 		request.setCharacterEncoding("utf-8");
 		String val = request.getParameter("val");
+		String num = request.getParameter("num");
 		System.out.println(val);
+		System.out.println(num);
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
 		out.println("<h1>서블릿 페이지</h1>");
 		out.println("<h1>"+val+"</h1>");
+		out.println("<h1>"+num+"</h1>");
 	}
 
 	/**

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/_web0220/test" method="post">
+<form action="/_web0220/test?num=100" method="post">
 <input type="text" name="val">
 <input type="submit">
 </form>
