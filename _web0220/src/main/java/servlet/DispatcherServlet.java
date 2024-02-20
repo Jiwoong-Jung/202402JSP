@@ -37,7 +37,9 @@ public class DispatcherServlet extends HttpServlet {
 	}
 	
 	private void process(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
+		String uri= request.getRequestURI();
+		String path = uri.substring(uri.lastIndexOf("/"));
+		System.out.println(path);
 	}
 
 }
