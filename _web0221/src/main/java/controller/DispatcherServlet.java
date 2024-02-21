@@ -15,7 +15,7 @@ import dto.Board;
 /**
  * Servlet implementation class DispatcherServlet
  */
-@WebServlet("/*.do")
+@WebServlet("*.do")
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -52,7 +52,7 @@ public class DispatcherServlet extends HttpServlet {
 				Board board = dao.selectOne(num, true);
 				
 				// 포워딩 작업
-				request.setAttribute("board", board);
+				request.setAttribute("bd", board);
 				RequestDispatcher dispatcher
 				    = request.getRequestDispatcher("/WEB-INF/view/view.jsp");
 				dispatcher.forward(request, response);
