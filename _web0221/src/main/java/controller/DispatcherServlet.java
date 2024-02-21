@@ -9,9 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.BoardDao;
+import dao.MemberDao;
 import dto.Board;
+import dto.Member;
 
 /**
  * Servlet implementation class DispatcherServlet
@@ -75,7 +78,21 @@ public class DispatcherServlet extends HttpServlet {
 			request.setAttribute("bd", board);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/view.jsp");
 			dispatcher.forward(request, response);
+		} else if (path.equals("/login.do")) {
+			String id = request.getParameter("id");
+			String email = request.getParameter("email");
+			Member member 
+			     = MemberDao.getInstance().selectForLogin(id, email);
+			if (member != null) {
+				HttpSession session = request.getSession();
+				session.setAttribute("member", member);
+				response.sendRedirect("list.do");
+			}
 		}
 	}
 
 }
+
+
+
+
