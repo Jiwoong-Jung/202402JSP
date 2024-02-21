@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,6 +46,13 @@ public class DispatcherServlet extends HttpServlet {
 			String uri = request.getRequestURI();
 			String path = uri.substring(uri.lastIndexOf("/"));
 			if (path.equals("/list.do")) {
+				BoardDao dao = BoardDao.getInstance();
+				ArrayList<Board> list = dao.selectList();
+				// 포워딩 작업
+				request.setAttribute("list", list);
+				RequestDispatcher dispatcher
+				    = request.getRequestDispatcher("/WEB-INF/view/list.jsp");
+				dispatcher.forward(request, response);
 				
 			} else if (path.equals("/view.do")) {
 				int num = Integer.parseInt(request.getParameter("num"));
