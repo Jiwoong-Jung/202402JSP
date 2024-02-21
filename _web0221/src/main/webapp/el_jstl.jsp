@@ -11,11 +11,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:forEach var="i" begin="1" end="10" step="2">
+${intArray = [100,200,300,400,500]}<br>
+<c:forEach var="v" items="${intArray }" varStatus="st">
+${v}: ${st.index } : ${st.count}<br/>
+</c:forEach>
+
+******<br>
+<c:forEach var="i" begin="0" end="10" step="2">
 ${i}<br>
 ${s = s + i;''}
 </c:forEach>
-1~10까지의 합: ${s}<br>
+1~10까지의 짝수의 합: ${s}<br>
 
 
 ${name}<br>
