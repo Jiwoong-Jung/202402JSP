@@ -93,6 +93,8 @@ public class DispatcherServlet extends HttpServlet {
 		} else if (path.equals("/logout.do")) {
 			HttpSession session = request.getSession(false);
 			session.invalidate();
+			response.sendRedirect("loginForm.do");
+		} else if (path.equals("/loginForm.do")) {
 			response.sendRedirect("loginForm.jsp");
 		}
 	}
