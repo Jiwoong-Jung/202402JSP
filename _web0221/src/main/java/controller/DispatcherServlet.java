@@ -87,7 +87,13 @@ public class DispatcherServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("member", member);
 				response.sendRedirect("list.do");
+			} else {
+				response.sendRedirect("loginForm.jsp");
 			}
+		} else if (path.equals("/logout.do")) {
+			HttpSession session = request.getSession(false);
+			session.invalidate();
+			response.sendRedirect("loginForm.jsp");
 		}
 	}
 
