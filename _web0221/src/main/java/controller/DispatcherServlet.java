@@ -58,6 +58,14 @@ public class DispatcherServlet extends HttpServlet {
 				int num = Integer.parseInt(request.getParameter("num"));
 				BoardDao dao = BoardDao.getInstance();
 				Board board = dao.selectOne(num, true);
+				// 글 제목과 내용이 웹 페이지에 올바르게 출력되도록 
+			    // 공백과 줄 바꿈 처리
+				String title = board.getTitle().replace(" ", "&nbsp;");
+				board.setTitle(title);
+			    
+			    String content = board.getContent()
+			    		 .replace(" ", "&nbsp;").replace("\n", "<br>");
+			    board.setContent(content);
 				
 				// 포워딩 작업
 				request.setAttribute("bd", board);
