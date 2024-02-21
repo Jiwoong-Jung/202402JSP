@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	request.setAttribute("name", "홍길동");  // 포워딩 된 것으로 가정! 
+	request.setAttribute("arr2", new int[]{10,20,30,40,50});
 %>
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:forEach var="v" items="${arr2}" varStatus="st">
+${v}: ${st.index } : ${st.count}<br/>
+</c:forEach>
+------------------<br>
 ${intArray = [100,200,300,400,500]}<br>
 <c:forEach var="v" items="${intArray }" varStatus="st">
 ${v}: ${st.index } : ${st.count}<br/>
