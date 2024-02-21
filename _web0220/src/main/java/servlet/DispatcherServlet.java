@@ -52,7 +52,7 @@ public class DispatcherServlet extends HttpServlet {
 			BoardDao dao = BoardDao.getInstance();
 			Board board = dao.selectOne(num, true);
 			
-		    request.setAttribute("board", board);
+		    request.setAttribute("bd", board);
 		    RequestDispatcher dispatcher 
 		       = request.getRequestDispatcher("/WEB-INF/view/view.jsp");
 		    dispatcher.forward(request, response);
