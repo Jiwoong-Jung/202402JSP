@@ -11,6 +11,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-${name}
+<c:forEach var="i" begin="1" end="10" step="2">
+${i}<br>
+${s = s + i;''}
+</c:forEach>
+1~10까지의 합: ${s}<br>
+
+
+${name}<br>
+${aaa = '3.14'; ''}<br>
+${aaa + 100 }<br>
+${aaa = aaa + 10 }<br>
+${"10"+1 }<br>
+${null+10 }<br/>
+${null+null}<br/>
 </body>
 </html>
+
+
+
+
+
