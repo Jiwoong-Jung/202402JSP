@@ -37,7 +37,7 @@ if (member == null) {
 		<td>${article.num}</td>
 		<td>
 		<a href="view.do?num=${article.num}">
-		<c:out value="${article.title}"/>
+		${article.title}
 		</a>
 		</td>
 		<td>${article.writer}</td>
