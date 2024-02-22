@@ -109,7 +109,21 @@ public class DispatcherServlet extends HttpServlet {
 		} else if (path.equals("/loginForm.do")) {
 			response.sendRedirect("loginForm.jsp");
 		} else if (path.equals("/write.do")) {
-			
+		    // 글 번호 값 얻기, 주어지지 않았으면 0으로 설정
+		    //int num = Integer.parseInt(request.getParameter("num"));
+		    String tmp = request.getParameter("num");
+		    int num = (tmp != null && tmp.length() > 0) ? Integer.parseInt(tmp)
+		                                                : 0;
+		    String action  = "insert.do";
+
+		    // 글 번호가 주어졌으면, 글 수정 모드
+		    if (num > 0) {
+		    	BoardDao dao = BoardDao.getInstance();
+		    	Board board = dao.selectOne(num, false);
+
+				// 글 수정 모드일 때는 저장 버튼을 누르면 UPDATE 실행
+				action  = "update.do?num=" + num;
+		    }
 		}
 	}
 
