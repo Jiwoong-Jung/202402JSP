@@ -3,8 +3,8 @@ package pageTest;
 public class PagingEx {
 
 	public static void main(String[] args) {
-		int totalPage = 10;
-		for (int i=1; i <= 10; i++) {
+		int totalPage = 20;
+		for (int i=1; i <= 20; i++) {
 			pageTest(i, totalPage);
 		}
 
