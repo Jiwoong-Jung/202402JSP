@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.BoardDao;
 import dao.MemberDao;
+import dto.ArticlePage;
 import dto.Board;
 import dto.Member;
 
@@ -56,9 +57,20 @@ public class DispatcherServlet extends HttpServlet {
 		String path = uri.substring(uri.lastIndexOf("/"));
 		if (path.equals("/list.do")) {
 			BoardDao dao = BoardDao.getInstance();
-			ArrayList<Board> list = dao.selectList();
+//			ArrayList<Board> list = dao.selectList();
 			// 포워딩 작업
-			request.setAttribute("list", list);
+//			request.setAttribute("list", list);
+			
+			String pageNoVal = request.getParameter("pageNo");
+			int pageNo = 1;
+			if (pageNoVal != null) {
+				pageNo = Integer.parseInt(pageNoVal);
+			}
+			int total = dao.selectCount();
+			ArrayList<Board> list = dao.select((pageNo-1)*5, 5);
+			ArticlePage articlePage = new ArticlePage(total, pageNo, 5, list);
+			request.setAttribute("articlePage", articlePage);
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/list.jsp");
 			dispatcher.forward(request, response);
 

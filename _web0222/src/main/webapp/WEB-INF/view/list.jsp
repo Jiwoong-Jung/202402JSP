@@ -8,7 +8,6 @@ if (member == null) {
 	response.sendRedirect("loginForm.do");
 }
 %>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -27,19 +26,42 @@ if (member == null) {
         <th class="regtime">작성일시</th>
         <th                >조회수  </th>
     </tr>
-<c:forEach var="board" items="${list}">        
-        <tr>
-            <td>${board.num}</td>
-            <td style="text-align:left;">
-                <a href="view.do?num=${board.num}">
-                    ${board.title}
-                </a>
-            </td>
-            <td>${board.writer}</td>
-            <td>${board.regtime}</td>
-            <td>${board.hits}</td>
-        </tr>
+
+<c:if test="${articlePage.hasNoArticles()}">
+	<tr>
+		<td colspan="4">게시글이 없습니다.</td>
+	</tr>
+</c:if>
+<c:forEach var="article" items="${articlePage.content}">
+	<tr>
+		<td>${article.num}</td>
+		<td>
+		<a href="view.do?num=${article.num}">
+		<c:out value="${article.title}"/>
+		</a>
+		</td>
+		<td>${article.writer}</td>
+		<td>${article.regtime}</td>
+		<td>${article.hits}</td>
+	</tr>
 </c:forEach>
+<c:if test="${articlePage.hasArticles()}">
+	<tr>
+		<td colspan="5">
+			<c:if test="${articlePage.startPage > 5}">
+			<a href="list.do?pageNo=${articlePage.startPage - 5}">[이전]</a>
+			</c:if>
+			<c:forEach var="pNo" 
+					   begin="${articlePage.startPage}" 
+					   end="${articlePage.endPage}">
+			<a href="list.do?pageNo=${pNo}">[${pNo}]</a>
+			</c:forEach>
+			<c:if test="${articlePage.endPage < articlePage.totalPages}">
+			<a href="list.do?pageNo=${articlePage.startPage + 5}">[다음]</a>
+			</c:if>
+		</td>
+	</tr>
+</c:if>
 </table>
 
 <br>
