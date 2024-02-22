@@ -115,15 +115,19 @@ public class DispatcherServlet extends HttpServlet {
 		    int num = (tmp != null && tmp.length() > 0) ? Integer.parseInt(tmp)
 		                                                : 0;
 		    String action  = "insert.do";
-
+		    Board board = null;
 		    // 글 번호가 주어졌으면, 글 수정 모드
 		    if (num > 0) {
 		    	BoardDao dao = BoardDao.getInstance();
-		    	Board board = dao.selectOne(num, false);
+		    	board = dao.selectOne(num, false);
 
 				// 글 수정 모드일 때는 저장 버튼을 누르면 UPDATE 실행
 				action  = "update.do?num=" + num;
 		    }
+		    request.setAttribute("board", board);
+			RequestDispatcher dispatcher 
+			        = request.getRequestDispatcher("/WEB-INF/view/write.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 
