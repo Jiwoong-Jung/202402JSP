@@ -22,7 +22,7 @@
 
             <ul id="gnb">
                 <li><a href="a.jsp?name=홍길동">DEPARTMENT</a></li>
-                <li><a href="#">GALLERY</a></li>
+                <li><a href="b.jsp?name=홍길동">GALLERY</a></li>
                 <li><a href="#">YOUTUBE</a></li>
                 <li><a href="#">COMMUNITY</a></li>
                 <li><a href="#">LOCATION</a></li>

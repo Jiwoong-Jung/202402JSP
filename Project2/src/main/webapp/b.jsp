@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1>b 페이지</h1>
+${param.name}
 <a href="a.jsp">a 페이지 이동</a>
 </body>
 </html>
