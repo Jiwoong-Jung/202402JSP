@@ -39,9 +39,9 @@
 <br>
 <input type="button" value="목록보기" onclick="location.href='list.do'">
 <input type="button" value="수정"
-       onclick="location.href='write.jsp?num=${bd.num}'">
+       onclick="location.href='write.do?num=${bd.num}'">
 <input type="button" value="삭제"
-       onclick="location.href='delete.jsp?num=${bd.num}'">
+       onclick="location.href='delete.do?num=${bd.num}'">
 
 </body>
 </html>

@@ -114,7 +114,7 @@ public class DispatcherServlet extends HttpServlet {
 		    String tmp = request.getParameter("num");
 		    int num = (tmp != null && tmp.length() > 0) ? Integer.parseInt(tmp)
 		                                                : 0;
-		    String action  = "insert.do";
+		    String action = "insert.do";
 		    Board board = null;
 		    // 글 번호가 주어졌으면, 글 수정 모드
 		    if (num > 0) {
@@ -125,6 +125,7 @@ public class DispatcherServlet extends HttpServlet {
 				action  = "update.do?num=" + num;
 		    }
 		    request.setAttribute("board", board);
+		    request.setAttribute("action", action);
 			RequestDispatcher dispatcher 
 			        = request.getRequestDispatcher("/WEB-INF/view/write.jsp");
 			dispatcher.forward(request, response);
