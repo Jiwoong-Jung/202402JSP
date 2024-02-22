@@ -108,6 +108,8 @@ public class DispatcherServlet extends HttpServlet {
 			response.sendRedirect("loginForm.do");
 		} else if (path.equals("/loginForm.do")) {
 			response.sendRedirect("loginForm.jsp");
+		} else if (path.equals("/write.do")) {
+			
 		}
 	}
 
