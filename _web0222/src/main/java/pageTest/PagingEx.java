@@ -3,7 +3,10 @@ package pageTest;
 public class PagingEx {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int totalPage = 10;
+		for (int i=1; i <= 10; i++) {
+			pageTest(i, totalPage);
+		}
 
 	}
 	public static void pageTest(int currentPage, int totalPages) {
