@@ -40,6 +40,10 @@ if (rs.next()) {
 	<div class="container" style="padding-top: 50px">
 		<form action="memberUpdate.jsp" method="post">
 			<div class="mb-3">
+				<label for="membernoInput" class="form-label">회원번호</label>
+				<input type="text" readonly name="memberno" value="<%=memberno %>" class="form-control" id="membernoInput" placeholder="회원번호">
+			</div>
+			<div class="mb-3">
 				<label for="idInput" class="form-label">아이디</label>
 				<input type="text" name="id" value="<%=id %>" class="form-control" id="idInput" placeholder="아이디">
 			</div>
