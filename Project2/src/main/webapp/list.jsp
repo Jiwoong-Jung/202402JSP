@@ -81,7 +81,7 @@ while (rs.next()) {
 					<td><%=rs.getString("id") %></td>
 					<td><%=rs.getString("email") %></td>
 					<td><%=rs.getString("name") %></td>
-					<td><a href="updateForm.jsp?id=<%=rs.getString("id") %>">수정</a></td>
+					<td><a href="updateForm.jsp?memberno=<%=rs.getString("memberno") %>">수정</a></td>
 				</tr>
 <%
 }
