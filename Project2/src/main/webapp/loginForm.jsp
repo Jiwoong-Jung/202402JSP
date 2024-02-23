@@ -6,13 +6,20 @@
 <meta charset="UTF-8">
 <title>회원 로그인</title>
 <style type="text/css">
+div {
+	text-align:center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 .account {
 	margin: 10px 10px;
+
 }
 
-.write {
+/*.write {
 	width: 100%;
-}
+}*/
 
 
 #login {

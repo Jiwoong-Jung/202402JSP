@@ -72,23 +72,18 @@ ResultSet rs = pstmt.executeQuery();
 				</tr>
 			</thead>
 			<tbody>
+<%
+while (rs.next()) {
+%>
 				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
+					<th scope="row"><%=rs.getString("memberno") %></th>
+					<td><%=rs.getString("id") %></td>
+					<td><%=rs.getString("email") %></td>
+					<td><%=rs.getString("name") %></td>
 				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td colspan="2">Larry the Bird</td>
-					<td>@twitter</td>
-				</tr>
+<%
+}
+%>				
 			</tbody>
 		</table>
 		<button class="btn btn-primary">글쓰기</button>
