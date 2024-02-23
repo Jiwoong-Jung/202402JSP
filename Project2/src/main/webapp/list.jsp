@@ -83,7 +83,10 @@ while (rs.next()) {
 					<td><%=rs.getString("email") %></td>
 					<td><%=rs.getString("name") %></td>
 					<td><a href="updateForm.jsp?memberno=<%=rs.getString("memberno") %>">수정</a></td>
-					<td><a href="delete.jsp?memberno=<%=rs.getString("memberno") %>">삭제</a></td>
+					<td>
+					<button class="btn btn-warning" 
+					onClick='location.href=
+					    "delete.jsp?memberno=<%=rs.getString("memberno") %>"'>삭제</button></td>
 				</tr>
 <%
 }
