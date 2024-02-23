@@ -9,9 +9,9 @@
 String mno = request.getParameter("memberno");
 Class.forName("oracle.jdbc.driver.OracleDriver");
 Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
-String sql = "select * from member where where memberno = ?";
+String sql = "select * from member where memberno = ?";
 PreparedStatement pstmt = conn.prepareStatement(sql);
-pstmt.setString(1, mno); 
+pstmt.setInt(1, Integer.parseInt(mno)); 
 ResultSet rs = pstmt.executeQuery();
 int memberno = 0;
 String id = null;
@@ -38,19 +38,19 @@ if (rs.next()) {
 </head>
 <body>
 	<div class="container" style="padding-top: 50px">
-		<form action="memberInput.jsp" method="post">
+		<form action="memberUpdate.jsp" method="post">
 			<div class="mb-3">
 				<label for="idInput" class="form-label">아이디</label>
-				<input type="text" name="id" class="form-control" id="idInput" placeholder="아이디">
+				<input type="text" name="id" value="<%=id %>" class="form-control" id="idInput" placeholder="아이디">
 			</div>
 			<div class="mb-3">
 				<label for="exampleFormControlInput1" class="form-label">이메일</label>
-				<input type="email" name="email" class="form-control"
+				<input type="email" name="email" value="<%=email %>" class="form-control"
 					id="exampleFormControlInput1" placeholder="name@example.com">
 			</div>
 			<div class="mb-3">
 				<label for="nameInput" class="form-label">이름</label>
-				<input type="text" name="name" class="form-control" id="nameInput" placeholder="이름">
+				<input type="text" name="name" value="<%=name %>" class="form-control" id="nameInput" placeholder="이름">
 			</div>
 			<button class="btn btn-primary">수정</button>
 		</form>
