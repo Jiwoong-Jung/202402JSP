@@ -65,10 +65,11 @@ ResultSet rs = pstmt.executeQuery();
 		<table class="table table-bordered table-hover">
 			<thead>
 				<tr>
-					<th scope="col">#</th>
-					<th scope="col">First</th>
-					<th scope="col">Last</th>
-					<th scope="col">Handle</th>
+					<th scope="col">회원번호</th>
+					<th scope="col">아이디</th>
+					<th scope="col">이메일</th>
+					<th scope="col">이름</th>
+					<th scope="col">수정</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -80,6 +81,7 @@ while (rs.next()) {
 					<td><%=rs.getString("id") %></td>
 					<td><%=rs.getString("email") %></td>
 					<td><%=rs.getString("name") %></td>
+					<td><a href="updateForm.jsp?id=<%=rs.getString("id") %>">수정</a></td>
 				</tr>
 <%
 }
