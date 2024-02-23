@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="container" style="padding-top: 50px">
-		<form action="memberInput.jsp" method="get">
+		<form action="memberInput.jsp" method="post">
 			<div class="mb-3">
 				<label for="idInput" class="form-label">아이디</label>
 				<input type="text" name="id" class="form-control" id="idInput" placeholder="아이디">
@@ -27,7 +27,7 @@
 				<label for="nameInput" class="form-label">이름</label>
 				<input type="text" name="name" class="form-control" id="nameInput" placeholder="이름">
 			</div>
-			<button class="btn btn-primary">글쓰기</button>
+			<button class="btn btn-primary">등록</button>
 		</form>
 	</div>
 	<script

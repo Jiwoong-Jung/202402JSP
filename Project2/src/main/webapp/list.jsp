@@ -86,11 +86,21 @@ while (rs.next()) {
 %>				
 			</tbody>
 		</table>
-		<button class="btn btn-primary">글쓰기</button>
+		<button class="btn btn-primary" onClick="move()">회원가입</button>
 	</div>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 		crossorigin="anonymous"></script>
+		
+	<script>
+		function move() {
+			//alert("나온다");
+			location.href="memberForm.jsp";
+		}
+	</script>
 </body>
 </html>
+
+
