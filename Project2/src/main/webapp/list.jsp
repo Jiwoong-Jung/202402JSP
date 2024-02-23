@@ -70,6 +70,7 @@ ResultSet rs = pstmt.executeQuery();
 					<th scope="col">이메일</th>
 					<th scope="col">이름</th>
 					<th scope="col">수정</th>
+					<th scope="col">삭제</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -82,6 +83,7 @@ while (rs.next()) {
 					<td><%=rs.getString("email") %></td>
 					<td><%=rs.getString("name") %></td>
 					<td><a href="updateForm.jsp?memberno=<%=rs.getString("memberno") %>">수정</a></td>
+					<td><a href="delete.jsp?memberno=<%=rs.getString("memberno") %>">삭제</a></td>
 				</tr>
 <%
 }
