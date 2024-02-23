@@ -9,23 +9,39 @@
 div {
 	margin: 10px 10px;
 }
-button {
-	float: left;
-	background: red;
-	color: white;
-}
+
 input {
 	width: 100%;
+}
+#divid {
+	color: red;
+}
+#divemail {
+	color: blue;
+}
+#login {
+	float: right;   background: red;    color: white; 
 }
 </style>
 </head>
 <body>
 <div>
 <form action="login.jsp" method="post">
-<label>아이디</label><input type="text" name="id"><br>
-<label>이메일</label><input type="text" name="email"><br>
-<button type="submit">로그인</button>
+<div id="divid">
+<label>아이디</label><input type="text" name="id">
+</div>
+<div id="divemail">
+<label>이메일</label><input type="text" name="email">
+</div>
+<button type="submit" id="login">로그인</button>
 </form>
+
+
+
+
+
+
+
 </div>
 </body>
 </html>
