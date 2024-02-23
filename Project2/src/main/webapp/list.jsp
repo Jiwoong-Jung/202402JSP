@@ -89,7 +89,7 @@ ResultSet rs = pstmt.executeQuery();
 					<td>
 						<button class="btn btn-warning"
 							onClick='location.href=
-					    "delete.jsp?memberno=<%=rs.getString("memberno")%>"'>삭제</button>
+					    "memberDelete.jsp?memberno=<%=rs.getString("memberno")%>"'>삭제</button>
 					</td>
 				</tr>
 				<%
