@@ -61,7 +61,7 @@ ResultSet rs = pstmt.executeQuery();
 	</nav>
 
 	<div class="container" style="padding-top: 50px">
-		<table class="table table-bordered table-hover">
+		<table class="table table-bordered table-hover" id="myTable">
 			<thead>
 				<tr>
 					<th scope="col">회원번호</th>
@@ -110,8 +110,13 @@ ResultSet rs = pstmt.executeQuery();
 			//alert("나온다");
 			location.href="memberForm.jsp";
 		}
+		function addRow(conent) {
+		    let table = document.getElementById("myTable");
+		    table.innerHTML = conent;
+		}
 		window.onload = function() {
-			alert("나온다");
+			let data = "<tr><td>111</td><td>333</td><td>444</td></tr>";
+			addRow(data);
 		}
 	</script>
 </body>
