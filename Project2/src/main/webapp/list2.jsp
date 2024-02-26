@@ -73,28 +73,7 @@ ResultSet rs = pstmt.executeQuery();
 				</tr>
 			</thead>
 			<tbody>
-				<%
-				while (rs.next()) {
-				%>
-				<tr>
-					<th scope="row"><%=rs.getString("memberno")%></th>
-					<td><%=rs.getString("id")%></td>
-					<td><%=rs.getString("email")%></td>
-					<td><%=rs.getString("name")%></td>
-					<td>
-						<button class="btn btn-warning"
-							onClick='location.href=
-					    "updateForm.jsp?memberno=<%=rs.getString("memberno")%>"'>수정</button>
-					</td>
-					<td>
-						<button class="btn btn-warning"
-							onClick='location.href=
-					    "memberDelete.jsp?memberno=<%=rs.getString("memberno")%>"'>삭제</button>
-					</td>
-				</tr>
-				<%
-				}
-				%>
+				
 			</tbody>
 		</table>
 		<button class="btn btn-primary" onClick="move()">회원가입</button>
@@ -115,11 +94,28 @@ ResultSet rs = pstmt.executeQuery();
 		    table.innerHTML = conent;
 		}
 		window.onload = function() {
-			let data = `<tr>
-			             <td><a href="http://www.naver.com">네이버</a></td>
-			             <td>333</td>
-			             <td>444</td>
-			            </tr>`;
+			let data = `<%
+				while (rs.next()) {
+				%>
+				<tr>
+					<th scope="row"><%=rs.getString("memberno")%></th>
+					<td><%=rs.getString("id")%></td>
+					<td><%=rs.getString("email")%></td>
+					<td><%=rs.getString("name")%></td>
+					<td>
+						<button class="btn btn-warning"
+							onClick='location.href=
+					    "updateForm.jsp?memberno=<%=rs.getString("memberno")%>"'>수정</button>
+					</td>
+					<td>
+						<button class="btn btn-warning"
+							onClick='location.href=
+					    "memberDelete.jsp?memberno=<%=rs.getString("memberno")%>"'>삭제</button>
+					</td>
+				</tr>
+				<%
+				}
+				%>`;
 			addRow(data);
 		}
 	</script>
