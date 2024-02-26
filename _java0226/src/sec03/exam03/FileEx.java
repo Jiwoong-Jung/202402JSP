@@ -11,8 +11,10 @@ public class FileEx {
 		File[] list = dir.listFiles();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		for (File file : list) {
-			System.out.println(
-					sdf.format(new Date(file.lastModified())));
+			
+			System.out.print(
+					sdf.format(new Date(file.lastModified())) + "\t\t");
+			System.out.println(file.getName());
 		}
 
 	}
