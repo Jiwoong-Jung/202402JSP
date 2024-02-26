@@ -115,7 +115,11 @@ ResultSet rs = pstmt.executeQuery();
 		    table.innerHTML = conent;
 		}
 		window.onload = function() {
-			let data = "<tr><td>111</td><td>333</td><td>444</td></tr>";
+			let data = `<tr>
+			             <td><a href="http://www.naver.com">네이버</a></td>
+			             <td>333</td>
+			             <td>444</td>
+			            </tr>`;
 			addRow(data);
 		}
 	</script>
