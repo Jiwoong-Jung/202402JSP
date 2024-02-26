@@ -7,8 +7,12 @@ import java.util.Date;
 public class FileEx {
 
 	public static void main(String[] args) {
+		File dir2 = new File("c:/temp/images");
+		dir2.mkdirs();
+		
 		File dir = new File("c:/temp");
 		File[] list = dir.listFiles();
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		for (File file : list) {
 			
