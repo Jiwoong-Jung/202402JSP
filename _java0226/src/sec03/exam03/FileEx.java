@@ -14,7 +14,12 @@ public class FileEx {
 			
 			System.out.print(
 					sdf.format(new Date(file.lastModified())) + "\t");
-			System.out.print(file.length()+"\t");
+			if (file.isDirectory()) {
+				System.out.print("<DIR>\t");
+			} else {
+				System.out.print(file.length()+"\t");
+			}
+			
 			System.out.println(file.getName());
 		}
 
