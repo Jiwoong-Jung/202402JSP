@@ -13,7 +13,8 @@ public class FileEx {
 		for (File file : list) {
 			
 			System.out.print(
-					sdf.format(new Date(file.lastModified())) + "\t\t");
+					sdf.format(new Date(file.lastModified())) + "\t");
+			System.out.print(file.length()+"\t");
 			System.out.println(file.getName());
 		}
 
