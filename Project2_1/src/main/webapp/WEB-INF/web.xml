@@ -11,7 +11,7 @@
 		<servlet-class>mvjsp.jdbc.loader.DBCPInit</servlet-class>
 		<init-param>
 			<param-name>jdbcdriver</param-name>
-			<param-value>com.mysql.jdbc.Driver</param-value>
+			<param-value>oracle.jdbc.driver.OracleDriver</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
