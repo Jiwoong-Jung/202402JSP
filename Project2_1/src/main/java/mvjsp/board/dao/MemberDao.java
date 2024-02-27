@@ -46,7 +46,6 @@ public class MemberDao {
 						rs.getString("email"),
 						rs.getString("name"));
 				list.add(member);
-				return list;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
