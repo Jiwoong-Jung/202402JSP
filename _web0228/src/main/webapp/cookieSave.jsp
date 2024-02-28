@@ -4,11 +4,13 @@
 String email = request.getParameter("email");
 String ck = request.getParameter("ck");
 
-if (ck != null && ck.equals("on")) {
-	//System.out.println(email);
-	
+if (ck != null && ck.equals("on")) { // 쿠키 생성
 	Cookie cookie = new Cookie("email", email);
 	cookie.setMaxAge(60);
+	response.addCookie(cookie);
+} else { // 쿠키 삭제
+	Cookie cookie = new Cookie("email", null);
+	cookie.setMaxAge(0);
 	response.addCookie(cookie);
 }
 %>
