@@ -14,6 +14,7 @@ MemberDao dao = MemberDao.getInstance();
 ArrayList<Member> list = dao.selectAll(conn);
 request.setAttribute("list", list);
 %>
+
 <jsp:forward page="list_view.jsp" />
 
 
