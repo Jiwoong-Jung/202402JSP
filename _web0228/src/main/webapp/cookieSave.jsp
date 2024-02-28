@@ -5,7 +5,11 @@ String email = request.getParameter("email");
 String ck = request.getParameter("ck");
 
 if (ck != null && ck.equals("on")) {
-	System.out.println(email);
+	//System.out.println(email);
+	
+	Cookie cookie = new Cookie("email", email);
+	cookie.setMaxAge(60);
+	response.addCookie(cookie);
 }
 %>
 
