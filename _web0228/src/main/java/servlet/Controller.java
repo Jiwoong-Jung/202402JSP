@@ -1,11 +1,20 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import mvjsp.board.dao.MemberDao;
+import mvjsp.board.model.Member;
+import mvjsp.jdbc.connection.ConnectionProvider;
 
 /**
  * Servlet implementation class Controller
@@ -26,20 +35,39 @@ public class Controller extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		process(request, response);
+		try {
+			process(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		process(request, response);
+		try {
+			process(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	private void process(HttpServletRequest request, HttpServletResponse response) {
+	private void process(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		String uri = request.getRequestURI();
 		System.out.println(uri);
 		String path = uri.substring(uri.lastIndexOf("/"));
 		System.out.println(path);
+		if (path.equals("/list.do")) {
+			Connection conn = ConnectionProvider.getConnection();
+			MemberDao dao = MemberDao.getInstance();
+			ArrayList<Member> list = dao.selectAll(conn);
+			request.setAttribute("list", list);
+			RequestDispatcher dispatcher 
+			         = request.getRequestDispatcher("/list_view.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 }
