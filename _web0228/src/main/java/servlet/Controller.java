@@ -65,8 +65,19 @@ public class Controller extends HttpServlet {
 			ArrayList<Member> list = dao.selectAll(conn);
 			request.setAttribute("list", list);
 			RequestDispatcher dispatcher 
-			         = request.getRequestDispatcher("/list_view.jsp");
+			         = request.getRequestDispatcher("list_view.jsp");
 			dispatcher.forward(request, response);
+		} else if (path.equals("/memberForm.do")) {
+			response.sendRedirect("memberForm.jsp");
+		} else if (path.equals("/memberInput.do")) {
+			String id = request.getParameter("id");
+			String email = request.getParameter("email");
+			String name = request.getParameter("name");
+			Connection conn = ConnectionProvider.getConnection();
+			MemberDao dao = MemberDao.getInstance();
+			Member member = new Member(id, email, name);
+			dao.insert(conn, member);
+			response.sendRedirect("list.do");
 		}
 	}
 

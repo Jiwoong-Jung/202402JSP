@@ -94,7 +94,7 @@
 	<script>
 		function move() {
 			//alert("나온다");
-			location.href="memberForm.jsp";
+			location.href="memberForm.do";
 		}
 	</script>
 </body>
