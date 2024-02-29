@@ -93,14 +93,14 @@ public class MemberDao {
 		return 0;
 	}
 	
-	public int delete(Connection conn, Member member) {
+	public int delete(Connection conn, int memberno) {
 		String sql = "delete from member where memberno = ?";
 	    try ( 
 	        PreparedStatement pstmt = conn.prepareStatement(sql);            
 	    ) {
 	        
 	        // 쿼리 실행
-	    	pstmt.setInt(1, member.getMemberno());
+	    	pstmt.setInt(1, memberno);
 	        return pstmt.executeUpdate();
 	    
 	    } catch(Exception e) {
