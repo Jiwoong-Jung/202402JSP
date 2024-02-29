@@ -9,6 +9,7 @@ String mno = request.getParameter("memberno");
 Connection conn = ConnectionProvider.getConnection();
 MemberDao dao = MemberDao.getInstance();
 Member member = dao.select(conn, Integer.parseInt(mno));
+request.setAttribute("member", member);
 %>
 <jsp:forward page="updateForm_view.jsp"/>
 
