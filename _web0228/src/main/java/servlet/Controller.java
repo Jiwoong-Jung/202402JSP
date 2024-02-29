@@ -96,13 +96,13 @@ public class Controller extends HttpServlet {
 			MemberDao dao = MemberDao.getInstance();
 			Member member = new Member(Integer.parseInt(mno), id, email, name);
 			dao.update(conn, member);
-			response.sendRedirect("list.jsp");
+			response.sendRedirect("list.do");
 		} else if (path.equals("/memberDelete.do")) {
 			String memberno = request.getParameter("memberno");
 			Connection conn = ConnectionProvider.getConnection();
 			MemberDao dao = MemberDao.getInstance();
 			dao.delete(conn, Integer.parseInt(memberno));
-			response.sendRedirect("list.jsp");
+			response.sendRedirect("list.do");
 		}
 	}
 
