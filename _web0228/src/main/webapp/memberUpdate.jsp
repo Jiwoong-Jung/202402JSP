@@ -8,13 +8,13 @@
     pageEncoding="UTF-8"%>
 <%
 request.setCharacterEncoding("utf-8");
-String memberno = request.getParameter("memberno");
+String mno = request.getParameter("memberno");
 String id = request.getParameter("id");
 String email = request.getParameter("email");
 String name = request.getParameter("name");
 Connection conn = ConnectionProvider.getConnection();
 MemberDao dao = MemberDao.getInstance();
-Member member = new Member(id, email, name);
+Member member = new Member(Integer.parseInt(mno), id, email, name);
 dao.update(conn, member);
 response.sendRedirect("list.jsp");
 %>
