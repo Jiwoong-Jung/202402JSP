@@ -16,6 +16,7 @@ import javax.servlet.http.HttpFilter;
 @WebFilter(filterName = "/CharEncodingFilter", urlPatterns = "/*")
 public class CharEncodingFilter extends HttpFilter implements Filter {
        
+	private String encoding;
     /**
      * @see HttpFilter#HttpFilter()
      */
@@ -35,7 +36,7 @@ public class CharEncodingFilter extends HttpFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("******2");
+		request.setCharacterEncoding(encoding);
 		chain.doFilter(request, response);
 	}
 
@@ -43,7 +44,10 @@ public class CharEncodingFilter extends HttpFilter implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		System.out.println("******1");
+		encoding = fConfig.getInitParameter("encoding");
+		if (encoding == null) {
+			encoding = "UTF-8";
+		}
 	}
 
 }
