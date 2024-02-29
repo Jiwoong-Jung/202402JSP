@@ -6,6 +6,16 @@
 		http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="chap17" version="3.0">
 	
+	<filter>
+		<filter-name>LoginCheck</filter-name>
+		<filter-class>filter.LoginCheckFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>LoginCheck</filter-name>
+		<url-pattern>/board/*</url-pattern>
+	</filter-mapping>
+	
 	<servlet>
 		<servlet-name>DBCPInit</servlet-name>
 		<servlet-class>mvjsp.jdbc.loader.DBCPInit</servlet-class>
