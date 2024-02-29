@@ -56,6 +56,58 @@ public class MemberDao {
 		}
 		return list;
 	}
+	
+	public int insert(Connection conn, Member member) {
+		String sql = "insert into member(memberno, id, email, name) values (seq_member.nextval,?,?,?)";
+	    try ( 
+	        PreparedStatement pstmt = conn.prepareStatement(sql);            
+	    ) {
+	        
+	        // 쿼리 실행
+	    	pstmt.setString(1, member.getId());
+	    	pstmt.setString(2, member.getEmail());
+	    	pstmt.setString(3, member.getName());
+	        return pstmt.executeUpdate();
+	    
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    } 
+		return 0;
+	}
+	
+	public int update(Connection conn, Member member) {
+		String sql = "update member set email = ?, name = ? where memberno = ?";
+	    try ( 
+	        PreparedStatement pstmt = conn.prepareStatement(sql);            
+	    ) {
+	        
+	        // 쿼리 실행
+	    	pstmt.setInt(3, member.getMemberno());
+	    	pstmt.setString(1, member.getEmail());
+	    	pstmt.setString(2, member.getName());
+	        return pstmt.executeUpdate();
+	    
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    } 
+		return 0;
+	}
+	
+	public int delete(Connection conn, Member member) {
+		String sql = "delete from member where memberno = ?";
+	    try ( 
+	        PreparedStatement pstmt = conn.prepareStatement(sql);            
+	    ) {
+	        
+	        // 쿼리 실행
+	    	pstmt.setInt(1, member.getMemberno());
+	        return pstmt.executeUpdate();
+	    
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    } 
+		return 0;
+	}
 }
 
 
