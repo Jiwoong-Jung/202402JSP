@@ -108,6 +108,31 @@ public class MemberDao {
 	    } 
 		return 0;
 	}
+	
+	public Member select(Connection conn, int memberno) {
+		Member member = null;
+		ResultSet rs = null;
+		String sql = "select * from member where memberno = ?";
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {	
+			pstmt.setInt(1, memberno);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				member = new Member(rs.getInt("memberno"),
+						            rs.getString("id"),
+						            rs.getString("email"),
+						            rs.getString("name"));
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(rs);
+		}
+		return member;
+		
+	}
 }
 
 
