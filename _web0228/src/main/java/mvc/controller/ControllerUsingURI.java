@@ -76,6 +76,6 @@ public class ControllerUsingURI extends HttpServlet {
         if (viewPage != null) {
 	        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 	        dispatcher.forward(request, response);
-        }
+        } 
     }
 }
