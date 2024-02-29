@@ -72,12 +72,12 @@
 					<td>
 						<button class="btn btn-warning"
 							onClick='location.href=
-					    "updateForm.jsp?memberno=${member.memberno}"'>수정</button>
+					    "updateForm.do?memberno=${member.memberno}"'>수정</button>
 					</td>
 					<td>
 						<button class="btn btn-warning"
 							onClick='location.href=
-					    "memberDelete.jsp?memberno=${member.memberno}"'>삭제</button>
+					    "memberDelete.do?memberno=${member.memberno}"'>삭제</button>
 					</td>
 				</tr>
 				</c:forEach>

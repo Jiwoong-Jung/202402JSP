@@ -78,6 +78,31 @@ public class Controller extends HttpServlet {
 			Member member = new Member(id, email, name);
 			dao.insert(conn, member);
 			response.sendRedirect("list.do");
+		} else if (path.equals("/updateForm.do")) {
+			String mno = request.getParameter("memberno");
+			Connection conn = ConnectionProvider.getConnection();
+			MemberDao dao = MemberDao.getInstance();
+			Member member = dao.select(conn, Integer.parseInt(mno));
+			request.setAttribute("member", member);
+			RequestDispatcher dispatcher 
+	         = request.getRequestDispatcher("updateForm_view.jsp");
+			dispatcher.forward(request, response);
+		} else if (path.equals("/memberUpdate.do")) {
+			String mno = request.getParameter("memberno");
+			String id = request.getParameter("id");
+			String email = request.getParameter("email");
+			String name = request.getParameter("name");
+			Connection conn = ConnectionProvider.getConnection();
+			MemberDao dao = MemberDao.getInstance();
+			Member member = new Member(Integer.parseInt(mno), id, email, name);
+			dao.update(conn, member);
+			response.sendRedirect("list.jsp");
+		} else if (path.equals("/memberDelete.do")) {
+			String memberno = request.getParameter("memberno");
+			Connection conn = ConnectionProvider.getConnection();
+			MemberDao dao = MemberDao.getInstance();
+			dao.delete(conn, Integer.parseInt(memberno));
+			response.sendRedirect("list.jsp");
 		}
 	}
 

@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div class="container" style="padding-top: 50px">
-		<form action="memberUpdate.jsp" method="post">
+		<form action="memberUpdate.do" method="post">
 			<div class="mb-3">
 				<label for="membernoInput" class="form-label">회원번호</label>
 				<input type="text" readonly name="memberno" value="${member.memberno}" class="form-control" id="membernoInput" placeholder="회원번호">
