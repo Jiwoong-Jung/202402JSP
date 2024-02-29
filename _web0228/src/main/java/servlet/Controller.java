@@ -19,7 +19,7 @@ import mvjsp.jdbc.connection.ConnectionProvider;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet("*.do")
+//@WebServlet("*.do")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
