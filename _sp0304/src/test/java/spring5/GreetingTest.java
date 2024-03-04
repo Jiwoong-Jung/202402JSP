@@ -13,4 +13,15 @@ public class GreetingTest {
 		String msg = this.target.getMessage(5);
 		assertThat(msg, is("좋은 아침입니다"));
 	}
+    @Test
+    public void getMessage_평상시() {
+        String message = this.target.getMessage(11);
+        assertThat(message, is("안녕하십니까"));
+    }
+        
+    @Test
+    public void getMessage_밤인사() {
+        String message = this.target.getMessage(17);
+        assertThat(message, is("수고 많으십니다"));
+    }
 }
