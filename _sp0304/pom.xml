@@ -5,10 +5,10 @@
 		http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>sp5</groupId>
-  <artifactId>_sp03004</artifactId>
+  <artifactId>_sp0304</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-    <properties>
+  <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>11</maven.compiler.source>

@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class App {
 
-	private static final String PROPERTY_FILE = "src/main/resources/book.properties";
+	private static final String PROPERTY_FILE = "/book.properties";
 	
 	public static void main(String[] args) {
 		App app = new App();
